@@ -1,0 +1,147 @@
+# Kaly Keyboard Ergogen Definition.
+# V 1.01
+# Matrix stagger values taken from minimal ferris example @Ergogen.
+# Made by: Kael S.A.
+# Modified by: *Insert your name here if you made minimal modifications :)*
+
+points:
+  zones:
+    matrix:
+      columns:
+        outer.key:
+        pinky.key:
+          stagger: 0
+          spread: cx
+        ring.key:
+          stagger: 12.57 #0.66U
+          spread: cx
+        middle.key:
+          stagger: 4.76 #0.25U
+          spread: cx
+        index.key:
+          stagger: -4.76 #-0.25U
+          spread: cx
+        inner.key:
+          stagger: -2.86 #-0.15U
+          spread: cx
+      rows:
+        bottom.padding: cy
+        home.padding: cy
+        top.padding: cy
+    thumb:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [0.425cx, -1.2cy] #0.739 cx, 1,32 cy are the standard values for a ferris sweep, I make it less to fit all three keys on a reasonably-sized PCB.
+        rotate: -15
+      columns:
+        inny:
+          key.name: thumb_inny
+        middy:
+          key.spread: cx
+          key.splay: -17
+          key.origin: [-0.5cx, -0.57cy] 
+          key.name: thumb_middy
+        reachy:
+          key.spread: cx
+          key.splay: -102
+          key.origin: [0.001cx, -0.072cy]
+          key.name: thumb_reachy
+
+outlines:
+  raw: #Just the standard output.
+    - what: rectangle
+      where: true
+      size: [cx, cy]
+  keys: #Toggle this one on to see the individual keys.
+    - what: rectangle
+      where: true
+      size: [cx-0.005,cy-0.005]
+  keys_outline: #The outline of the keys.
+    - what: rectangle
+      where: true
+      size: [cx, cy]
+      corner: 0
+  pillsquare:	#A rounded rectangle to the left of the keys for the microcontroller.
+    - what: rectangle
+      adjust:
+        ref: matrix_inner_home
+        shift: [ 20.83, -10 ]
+      size: [31.5, 71]
+      corner: 1.5
+  trrs:         #Another rectangle below the pillsquare where the trrs stays. 
+    - what: rectangle
+      adjust:
+        ref: matrix_inner_home
+        shift: [ 31.58, -43.5 ]
+      size: [10, 20]
+      corner: 0
+  artreca:	#One of the three rectangles that make the bottom curve. Left-most.
+    - what: rectangle
+      adjust:
+        ref: matrix_middle_bottom
+        shift: [ 13.5, -10.94 ]
+        rotate: 87
+      size: [34, 82]
+      corner: 0
+  artrecb:	#One of the three rectangles that make the bottom curve. Middle one.
+    - what: rectangle
+      adjust:
+        ref: matrix_middle_bottom
+        shift: [ 9, -9.1 ]
+        rotate: 83
+      size: [40, 70]
+      corner: 0
+  artrec:
+    - artreca
+    - artrecb
+  reachy:
+    - what: rectangle
+      adjust:
+        ref: thumb_reachy	#Padding for the reachy key.
+        shift: [ 0, -cy / 4]
+        rotate: 0
+      size: [cx + 1, cy + 1 + cy/2]
+      corner: 1.5
+  middy:
+    - what: rectangle		# Padding for the middy key.
+      adjust:
+        ref: thumb_middy
+        shift: [ -cx / 4, 0]
+        rotate: -0
+      size: [cx + 1 + cx / 2, cy + 1]
+  inny:
+    - what: rectangle		# Padding for half of the lenght of the inny key.
+      adjust:
+        ref: thumb_inny
+        shift: [ 0, 0.47]
+        rotate: -3
+      size: [cx + 6, cy + 1]
+    - what: rectangle	#One of the three rectangles that make the bottom curve. Right-most one.
+      adjust:
+        ref: thumb_inny
+      size: [cx + 30, cy]
+  thumb_keys:
+    - reachy
+    - middy
+    - inny
+  pcb_outline:			# Outline of the PCB used below.
+    - pillsquare 
+    - trrs
+    - keys_outline
+    - artrec
+    - thumb_keys
+
+pcbs:
+  kalypcb:
+    outlines:
+      main:
+        outline: pcb_outline
+    footprints:
+      keys:
+        what: choc
+        where: true
+        params:
+          from: GND
+          to: "{{name}}"
+          reverse: true
+          keycaps: true
