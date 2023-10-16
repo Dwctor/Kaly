@@ -6,7 +6,7 @@ The Kaly is a 42 key DIY keyboard for those that seek an affordable and conforta
 
 This keyboard has been heavily inspired on other projects, like the [Ferris Sweep](https://github.com/davidphilipbarr/Sweep) and the [Cantor](https://github.com/diepala/cantor).
 
-If you want to see more images, feel free to go to the `Pictures` folder or visit [this post on Lemmy](https://lemmy.world/post/1589095)
+If you want to see more images, feel free to go to the `Pictures` folder or visit [this post on Lemmy](https://lemmy.world/post/1589095). Also, I have made a [youtube video](https://www.youtube.com/watch?v=PhxM8o__9Xo) about the Kaly and the journey of going from a standard keyboard to building my own, please check it out!
 
 ## Why build a Kaly?
 
