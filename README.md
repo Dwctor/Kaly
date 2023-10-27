@@ -18,7 +18,7 @@ If you want to see more images, feel free to go to the `Pictures` folder or visi
 
 ## How to build a Kaly?
 
-Sadly this is a WIP, I will be updating the repo with a build guide soon, however, you can follow the [Cantor's build guide](https://github.com/diepala/cantor/blob/main/doc/build_guide.md), as it is quite similar! The firmware for the Kaly will be released sometime soon and will be linked here. If you need it before that, feel free to contact me on discord (dwctor) as I have a working version for QMK/VIAL.
+Sadly this is a WIP, I will be updating the repo with a build guide soon, however, you can follow the [Cantor's build guide](https://github.com/diepala/cantor/blob/main/doc/build_guide.md), as it is quite similar! The firmware for the Kaly is already available within the [QMK's firmware repository](https://github.com/qmk/qmk_firmware). If you'd like a Vial version, feel free to contact me.
 
 As for the parts list, you will need
 
